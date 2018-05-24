@@ -3,8 +3,6 @@ package com.ali.stack;
 import com.ali.exceptions.StackOverFlowException;
 import com.ali.exceptions.StackUnderFlowException;
 
-import java.util.Arrays;
-
 public class Stack<T> {
 
     private int top;
