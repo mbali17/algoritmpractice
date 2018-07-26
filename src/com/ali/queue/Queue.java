@@ -6,6 +6,12 @@ import com.ali.exceptions.StackUnderFlowException;
 
 import java.util.Arrays;
 
+/**
+ * Implement Queue datastructure using array.
+ * @param <T>
+ * TODO : FIX the insertion and deletion of elements this a regular queue where the next element is inserted only if the
+ * fresh queue is created or if already created queue is completely processed.
+ */
 public class Queue <T extends Comparable<T>>{
     //Variables needed for the data structure.
     private int size;
@@ -26,7 +32,7 @@ public class Queue <T extends Comparable<T>>{
      */
     public boolean isFull(){
         //Check if the rear of the queue has reached end  and the elements at the front of the queue is not processed.
-        return (rear == size-1 && front==0);
+        return rear == size-1 && noOfItems == this.size-1;
     }
 
     /**
@@ -34,8 +40,8 @@ public class Queue <T extends Comparable<T>>{
      * @return {@code true} if the rear is -1 otherwise {@code false}
      */
     public boolean isEmpty(){
-        //Check if the queue is never processed or is processed completely.
-        return (rear == -1 || front == this.size-1);
+        //Check if the queue is processed completely.
+        return  front == this.size-1 ;
     }
 
     /**
@@ -48,7 +54,7 @@ public class Queue <T extends Comparable<T>>{
             throw new StackOverFlowException("The Queue is full,Try after some time");
         }
         queueElements[++rear] = element;
-        noOfItems++;
+        ++noOfItems;
     }
 
     /**
@@ -69,7 +75,9 @@ public class Queue <T extends Comparable<T>>{
             rear=-1;
             throw new QueueUnderflowException("There are no more elements to be removed.");
         }
+        --noOfItems;
         return queueElements[front++];
+
     }
 
     public void printCurrentQueueState(){

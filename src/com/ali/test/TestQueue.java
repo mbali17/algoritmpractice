@@ -15,10 +15,12 @@ public class TestQueue {
                 i++;
             }
             integerQueue.printCurrentQueueState();
-            //integerQueue.insert(1000);
             while (!integerQueue.isEmpty()) {
                 integerQueue.remove();
             }
+            integerQueue.insert(1000);//Uncomment this line to simulate stack over flow exception
+            integerQueue.printCurrentQueueState();
+
         } catch (StackOverFlowException e) {
             e.printStackTrace();
         } catch (QueueUnderflowException e) {
