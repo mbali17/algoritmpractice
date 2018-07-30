@@ -11,14 +11,19 @@ public class TestQueue {
         int i=0;
         try {
             while (!integerQueue.isFull()) {
-                integerQueue.insert(i);
+                integerQueue.enQueue(i);
                 i++;
             }
             integerQueue.printCurrentQueueState();
             while (!integerQueue.isEmpty()) {
-                integerQueue.remove();
+                integerQueue.deQueue();
             }
-            integerQueue.insert(1000);//Uncomment this line to simulate stack over flow exception
+            integerQueue.enQueue(1000);//Uncomment this line to simulate stack over flow exception
+            integerQueue.enQueue(2000);//Uncomment this line to simulate stack over flow exception
+            integerQueue.enQueue(3000);//Uncomment this line to simulate stack over flow exception
+            integerQueue.enQueue(4000);//Uncomment this line to simulate stack over flow exception
+            integerQueue.enQueue(5000);//Uncomment this line to simulate stack over flow exception
+            integerQueue.enQueue(2000);//Uncomment this line to simulate stack over flow exception
             integerQueue.printCurrentQueueState();
 
         } catch (StackOverFlowException e) {

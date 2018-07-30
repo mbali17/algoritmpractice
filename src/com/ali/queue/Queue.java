@@ -5,12 +5,13 @@ import com.ali.exceptions.StackOverFlowException;
 import com.ali.exceptions.StackUnderFlowException;
 
 import java.util.Arrays;
+import java.util.prefs.Preferences;
+import java.util.stream.IntStream;
 
 /**
  * Implement Queue datastructure using array.
  * @param <T>
- * TODO : FIX the insertion and deletion of elements this a regular queue where the next element is inserted only if the
- * fresh queue is created or if already created queue is completely processed.
+ * TODO : Fix the current status method to print the values between front and rear.
  */
 public class Queue <T extends Comparable<T>>{
     //Variables needed for the data structure.
@@ -24,6 +25,7 @@ public class Queue <T extends Comparable<T>>{
         this.size = size;
         queueElements = (T[]) new Comparable[this.size];
         rear = -1;
+        front = -1;
     }
 
     /**
@@ -31,8 +33,8 @@ public class Queue <T extends Comparable<T>>{
      * @return {@code true} if number of items is same as size of the array else {@code false}
      */
     public boolean isFull(){
-        //Check if the rear of the queue has reached end  and the elements at the front of the queue is not processed.
-        return rear == size-1 && noOfItems == this.size-1;
+        //Check if the rear of the queue has reached the.
+        return rear == this.size-1;
     }
 
     /**
@@ -41,7 +43,7 @@ public class Queue <T extends Comparable<T>>{
      */
     public boolean isEmpty(){
         //Check if the queue is processed completely.
-        return  front == this.size-1 ;
+        return (front ==-1 && rear == -1);
     }
 
     /**
@@ -49,11 +51,16 @@ public class Queue <T extends Comparable<T>>{
      * @param element
      * @throws StackOverFlowException
      */
-    public void insert(T element) throws StackOverFlowException{
+    public void enQueue(T element) throws StackOverFlowException{
         if(isFull()){
             throw new StackOverFlowException("The Queue is full,Try after some time");
+        }else if(isEmpty()){
+            ++front;
+            ++rear;
+        }else{
+            ++rear;
         }
-        queueElements[++rear] = element;
+        queueElements[rear] = element;
         ++noOfItems;
     }
 
@@ -68,19 +75,40 @@ public class Queue <T extends Comparable<T>>{
      * Removes the element at the front of the queue.
      * @return  element which is being removed at the front of the queue.
      */
-    public T remove() throws QueueUnderflowException {
-        if(isEmpty()){
+    public T deQueue() throws QueueUnderflowException {
+        if(isEmpty() ){
             //Re-initialize the queue.
-            front=0;
-            rear=-1;
+            System.out.println("Re-initializing the array, the value of front is "+ front + " and th value of rear is" + rear);
+            reInitializeQueue();
             throw new QueueUnderflowException("There are no more elements to be removed.");
+        }else if (front == rear ){
+            T elementAtTheFront = getElementAndIncrrementFront();
+            --noOfItems;
+            reInitializeQueue();
+            return   elementAtTheFront;
         }
-        --noOfItems;
-        return queueElements[front++];
+        else {
+            T elementAtTheFront = getElementAndIncrrementFront();
+            --noOfItems;
+            return  elementAtTheFront;
+        }
 
     }
 
+    private T getElementAndIncrrementFront() {
+        T  elementAtTheFront =  peekQueue();
+        front++;
+        return elementAtTheFront;
+    }
+
+    private void reInitializeQueue() {
+        front=-1;
+        rear=-1;
+    }
+
     public void printCurrentQueueState(){
-        Arrays.stream(queueElements).forEach(System.out::println);
+        for(int i=front; i< rear;i++ ){
+            System.out.println(queueElements[i]);
+        }
     }
 }
