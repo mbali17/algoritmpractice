@@ -9,9 +9,12 @@ import java.util.prefs.Preferences;
 import java.util.stream.IntStream;
 
 /**
- * Implement Queue datastructure using array.
- * @param <T>
- * TODO : Fix the current status method to print the values between front and rear.
+ * Implement Queue data structure using array.
+ * <p>
+ *     Implements the Queue data structure using the Array.This implementation of the queue can be used when the
+ *     queue size is fixed and is only re-initialized once the array is completely filled and  processed (when the rear
+ *     and the front reaches the end of the queue. )
+ * @param <T> Type of elements
  */
 public class Queue <T extends Comparable<T>>{
     //Variables needed for the data structure.
@@ -30,7 +33,7 @@ public class Queue <T extends Comparable<T>>{
 
     /**
      * Checks if the current queue is full.
-     * @return {@code true} if number of items is same as size of the array else {@code false}
+     * @return {@code true} if rear is same as size of the array else {@code false}
      */
     public boolean isFull(){
         //Check if the rear of the queue has reached the.
@@ -39,7 +42,7 @@ public class Queue <T extends Comparable<T>>{
 
     /**
      * Checks if the current queue is empty.
-     * @return {@code true} if the rear is -1 otherwise {@code false}
+     * @return {@code true} if the rear and front is -1 otherwise {@code false}
      */
     public boolean isEmpty(){
         //Check if the queue is processed completely.
@@ -48,8 +51,8 @@ public class Queue <T extends Comparable<T>>{
 
     /**
      *
-     * @param element
-     * @throws StackOverFlowException
+     * @param element To be added to the front of the queue.
+     * @throws StackOverFlowException when the array is full.
      */
     public void enQueue(T element) throws StackOverFlowException{
         if(isFull()){
@@ -65,7 +68,7 @@ public class Queue <T extends Comparable<T>>{
     }
 
     /**
-     * @return the element at the beginning of the queue.
+     * @return the element at the front of the queue.
      */
     public T peekQueue(){
         return queueElements[front];
@@ -73,7 +76,7 @@ public class Queue <T extends Comparable<T>>{
 
     /**
      * Removes the element at the front of the queue.
-     * @return  element which is being removed at the front of the queue.
+     * @return <T> element which is being removed at the front of the queue.
      */
     public T deQueue() throws QueueUnderflowException {
         if(isEmpty() ){
@@ -106,6 +109,10 @@ public class Queue <T extends Comparable<T>>{
         rear=-1;
     }
 
+    /**
+     * Prints the current elements in the queue.
+     * TODO : FIX this to print th correct elements.
+     */
     public void printCurrentQueueState(){
         for(int i=front; i< rear;i++ ){
             System.out.println(queueElements[i]);
