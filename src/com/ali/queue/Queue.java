@@ -1,5 +1,6 @@
 package com.ali.queue;
 
+import com.ali.exceptions.QueueOverflowException;
 import com.ali.exceptions.QueueUnderflowException;
 import com.ali.exceptions.StackOverFlowException;
 import com.ali.exceptions.StackUnderFlowException;
@@ -28,7 +29,7 @@ public class Queue <T extends Comparable<T>>{
         this.size = size;
         queueElements = (T[]) new Comparable[this.size];
         rear = -1;
-        front = -1;
+        front = 0;
     }
 
     /**
@@ -46,7 +47,7 @@ public class Queue <T extends Comparable<T>>{
      */
     public boolean isEmpty(){
         //Check if the queue is processed completely.
-        return (front ==-1 && rear == -1);
+        return (noOfItems == 0);
     }
 
     /**
@@ -54,12 +55,9 @@ public class Queue <T extends Comparable<T>>{
      * @param element To be added to the front of the queue.
      * @throws StackOverFlowException when the array is full.
      */
-    public void enQueue(T element) throws StackOverFlowException{
+    public void enQueue(T element) throws QueueOverflowException {
         if(isFull()){
-            throw new StackOverFlowException("The Queue is full,Try after some time");
-        }else if(isEmpty()){
-            ++front;
-            ++rear;
+            throw new QueueOverflowException("The Queue is full,Try after some time");
         }else{
             ++rear;
         }
@@ -80,14 +78,14 @@ public class Queue <T extends Comparable<T>>{
      */
     public T deQueue() throws QueueUnderflowException {
         if(isEmpty() ){
-            //Re-initialize the queue.
-            System.out.println("Re-initializing the array, the value of front is "+ front + " and th value of rear is" + rear);
-            reInitializeQueue();
+            //Re-initialize the queue by initializing rear to -1. Which makes this a circular queue
+            // (Invoke reInitializeQueue())
             throw new QueueUnderflowException("There are no more elements to be removed.");
         }else if (front == rear ){
             T elementAtTheFront = getElementAndIncrrementFront();
             --noOfItems;
-            reInitializeQueue();
+            //Re-initialize the queue by initializing rear to -1. Which makes this a circular queue.
+            // (Invoke reInitializeQueue())
             return   elementAtTheFront;
         }
         else {
@@ -105,15 +103,16 @@ public class Queue <T extends Comparable<T>>{
     }
 
     private void reInitializeQueue() {
-        front=-1;
+        front=0;
         rear=-1;
     }
 
     /**
      * Prints the current elements in the queue.
-     * TODO : FIX this to print th correct elements.
      */
     public void printCurrentQueueState(){
+        if(isEmpty())
+            System.out.println("No ELements to print");
         for(int i=front; i< rear;i++ ){
             System.out.println(queueElements[i]);
         }

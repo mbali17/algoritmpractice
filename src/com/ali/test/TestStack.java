@@ -5,6 +5,8 @@ import com.ali.exceptions.StackUnderFlowException;
 import com.ali.stack.Stack;
 import com.ali.stack.problems.ReverseStringUsingStack;
 
+import java.util.Scanner;
+
 public class TestStack {
     public static void main(String[] args) {
         Stack <Integer>priorityList =  new Stack<Integer>(5);
@@ -28,7 +30,10 @@ public class TestStack {
             System.out.println(priorityList.isEmpty());
             System.out.println(priorityList.getTop());
             //Reverse the string using stack.
-            ReverseStringUsingStack.reverseString("hello");
+            Scanner inputScanner = new Scanner(System.in);
+            System.out.println("Enter the String to reverse:");
+            String inputToReverse = inputScanner.nextLine();
+            ReverseStringUsingStack.reverseString(inputToReverse);
         } catch (StackOverFlowException e) {
             e.printStackTrace();
         } catch (StackUnderFlowException e) {

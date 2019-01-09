@@ -1,5 +1,6 @@
 package com.ali.test;
 
+import com.ali.exceptions.QueueOverflowException;
 import com.ali.exceptions.QueueUnderflowException;
 import com.ali.exceptions.StackOverFlowException;
 import com.ali.queue.Queue;
@@ -18,17 +19,13 @@ public class TestQueue {
             while (!integerQueue.isEmpty()) {
                 integerQueue.deQueue();
             }
-            integerQueue.enQueue(1000);//Uncomment this line to simulate stack over flow exception
-            integerQueue.enQueue(2000);//Uncomment this line to simulate stack over flow exception
-            integerQueue.enQueue(3000);//Uncomment this line to simulate stack over flow exception
-            integerQueue.enQueue(4000);//Uncomment this line to simulate stack over flow exception
-            integerQueue.enQueue(5000);//Uncomment this line to simulate stack over flow exception
-            integerQueue.enQueue(2000);//Uncomment this line to simulate stack over flow exception
+            //Uncomment to trigger the QueueUnderFlowExceptio
+            //integerQueue.deQueue();
+            //Uncomment to trigger the QueueOverflowException
+            //integerQueue.enQueue(1000);//Uncomment this line to simulate stack over flow exception
             integerQueue.printCurrentQueueState();
 
-        } catch (StackOverFlowException e) {
-            e.printStackTrace();
-        } catch (QueueUnderflowException e) {
+        } catch (QueueOverflowException | QueueUnderflowException  e) {
             e.printStackTrace();
         }
 
