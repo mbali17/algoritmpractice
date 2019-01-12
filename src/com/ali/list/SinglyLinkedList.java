@@ -1,15 +1,6 @@
 package com.ali.list;
 
-import com.ali.interfaces.List;
-
-public class SinglyLinkedList<T>  implements List<T> {
-    private Node<T> first;
-
-
-    @Override
-    public boolean isEmpty() {
-        return first == null;
-    }
+public class SinglyLinkedList<T>  extends AbstractList<T> {
 
     @Override
     public void addNodeAtFront(Node<T> node) {
@@ -30,27 +21,5 @@ public class SinglyLinkedList<T>  implements List<T> {
         Node<T> tempNode = first;
         first = tempNode.getNext();
         return tempNode;
-    }
-
-    @Override
-    public void displayList() {
-        Node<T> currentNode = first;
-        while (currentNode != null) {
-            System.out.println("data at the node"+currentNode.getdataAtTheNode());
-            currentNode = currentNode.getNext();
-        }
-
-    }
-
-    @Override
-    public boolean contains(T value) {
-        Node<T> currentNode = first;
-        while (currentNode != null ){
-            if(currentNode.getdataAtTheNode().equals(value)) {
-                return true;
-            }
-            currentNode = currentNode.getNext();
-        }
-        return false;
     }
 }
