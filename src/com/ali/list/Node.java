@@ -4,6 +4,11 @@ public class Node<T> {
     private Node<T> next;
     private T dataAtTheNode;
 
+    public Node(T element){
+        dataAtTheNode = element;
+        next = null;
+    }
+
     public Node<T> getNext() {
         return next;
     }
