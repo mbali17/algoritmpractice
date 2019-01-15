@@ -2,6 +2,16 @@ package com.ali.list;
 
 public class Node<T> {
     private Node<T> next;
+    private Node<T> previous;
+
+    public Node<T> getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(Node<T> previous) {
+        this.previous = previous;
+    }
+
     private T dataAtTheNode;
 
     public Node(T element){
