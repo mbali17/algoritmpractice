@@ -31,5 +31,11 @@ public abstract class AbstractList<T> implements List<T> {
         return false;
     }
 
+    public Node<T> deleteFirst(){
+        Node<T> tempNode = first;
+        first = tempNode.getNext();
+        return tempNode;
+    }
+
 
 }
