@@ -9,4 +9,7 @@ public interface List<T> {
     boolean contains(T value);
     Node<T> deleteFirst();
     void displayList();
+    default void addNodeAfter(Node<T> node,T value){
+        System.out.println("adding node after");
+    }
 }
