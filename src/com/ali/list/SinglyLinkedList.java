@@ -17,9 +17,4 @@ public class SinglyLinkedList<T>  extends AbstractList<T> {
         currentNode.setNext(node);
     }
 
-    public Node<T> deleteFirst(){
-        Node<T> tempNode = first;
-        first = tempNode.getNext();
-        return tempNode;
-    }
 }

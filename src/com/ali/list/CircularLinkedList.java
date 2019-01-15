@@ -24,10 +24,4 @@ public class CircularLinkedList<T> extends AbstractList<T> {
 
     }
 
-    @Override
-    public Node<T> deleteFirst() {
-        Node<T>  temp = first;
-        first = first.getNext();
-        return temp;
-    }
 }
