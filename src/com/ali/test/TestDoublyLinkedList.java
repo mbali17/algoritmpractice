@@ -21,7 +21,11 @@ public class TestDoublyLinkedList {
         doublyLinkedList.addNodeAtFront(node3);
 
         doublyLinkedList.displayList();
-        doublyLinkedList.addNodeAfter(node6,7);
-        ((DoublyLinkedList<Integer>) doublyLinkedList).displayReverseList();
+        doublyLinkedList.addNodeAfter(node6,99999);
+        doublyLinkedList.deleteFirst();
+        doublyLinkedList.deleteLast();
+        doublyLinkedList.displayList();
+        doublyLinkedList.displayReverseList();
+
     }
 }

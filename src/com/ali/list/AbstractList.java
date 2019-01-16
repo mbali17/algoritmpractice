@@ -37,5 +37,13 @@ public abstract class AbstractList<T> implements List<T> {
         return tempNode;
     }
 
+    public Node<T> deleteLast(){
+        System.out.println("Concrete implementation to be provided by the child class.");
+        return null;
+    }
+
+    public void displayReverseList(){
+        System.out.println("Concrete implementation to be provided by the child class.");
+    }
 
 }
