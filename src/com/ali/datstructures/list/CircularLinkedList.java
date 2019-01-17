@@ -1,4 +1,4 @@
-package com.ali.list;
+package com.ali.datstructures.list;
 
 public class CircularLinkedList<T> extends AbstractList<T> {
 

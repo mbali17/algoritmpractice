@@ -1,9 +1,8 @@
-package com.ali.test;
+package com.ali.datstructures.test;
 
-import com.ali.exceptions.QueueOverflowException;
-import com.ali.exceptions.QueueUnderflowException;
-import com.ali.exceptions.StackOverFlowException;
-import com.ali.queue.Queue;
+import com.ali.datstructures.exceptions.QueueOverflowException;
+import com.ali.datstructures.exceptions.QueueUnderflowException;
+import com.ali.datstructures.queue.Queue;
 
 public class TestQueue {
     //TODO: Add more test cases. Improvise this using the Junit test cases.

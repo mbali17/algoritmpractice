@@ -1,13 +1,8 @@
-package com.ali.queue;
+package com.ali.datstructures.queue;
 
-import com.ali.exceptions.QueueOverflowException;
-import com.ali.exceptions.QueueUnderflowException;
-import com.ali.exceptions.StackOverFlowException;
-import com.ali.exceptions.StackUnderFlowException;
-
-import java.util.Arrays;
-import java.util.prefs.Preferences;
-import java.util.stream.IntStream;
+import com.ali.datstructures.exceptions.QueueOverflowException;
+import com.ali.datstructures.exceptions.QueueUnderflowException;
+import com.ali.datstructures.exceptions.StackOverFlowException;
 
 /**
  * Implement Queue data structure using array.

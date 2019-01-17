@@ -1,4 +1,4 @@
-package com.ali.exceptions;
+package com.ali.datstructures.exceptions;
 
 /**
  * Exception thrown when the stack is full;

@@ -1,4 +1,4 @@
-package com.ali.list;
+package com.ali.datstructures.list;
 
 public class DoublyLinkedList<T> extends AbstractList<T> {
     private Node<T> last;

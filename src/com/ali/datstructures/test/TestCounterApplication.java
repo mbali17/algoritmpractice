@@ -1,6 +1,6 @@
-package com.ali.test;
+package com.ali.datstructures.test;
 
-import com.ali.adt.Counter;
+import com.ali.datstructures.adt.Counter;
 /**
  * This class tests the counter class.
  * @author Ali

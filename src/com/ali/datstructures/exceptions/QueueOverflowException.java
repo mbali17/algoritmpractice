@@ -1,4 +1,4 @@
-package com.ali.exceptions;
+package com.ali.datstructures.exceptions;
 
 public class QueueOverflowException extends Exception {
     public QueueOverflowException(String message) {

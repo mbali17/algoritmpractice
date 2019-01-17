@@ -1,6 +1,6 @@
-package com.ali.interfaces;
+package com.ali.datstructures.interfaces;
 
-import com.ali.list.Node;
+import com.ali.datstructures.list.Node;
 
 public interface List<T> {
     boolean isEmpty();

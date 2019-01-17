@@ -1,6 +1,6 @@
-package com.ali.list;
+package com.ali.datstructures.list;
 
-import com.ali.interfaces.List;
+import com.ali.datstructures.interfaces.List;
 
 public abstract class AbstractList<T> implements List<T> {
     Node<T> first;
