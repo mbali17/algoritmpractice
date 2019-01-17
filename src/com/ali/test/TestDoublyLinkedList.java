@@ -26,6 +26,8 @@ public class TestDoublyLinkedList {
         doublyLinkedList.deleteLast();
         doublyLinkedList.displayList();
         doublyLinkedList.displayReverseList();
+        doublyLinkedList.deleteNodeWithValue(99999);
+        doublyLinkedList.displayList();
 
     }
 }

@@ -15,4 +15,5 @@ public interface List<T> {
         System.out.println("adding node after");
         return false;
     }
+    Node<T> deleteNodeWithValue(T value);
 }

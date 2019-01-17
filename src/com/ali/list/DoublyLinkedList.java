@@ -59,9 +59,15 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
     @Override
     public void displayReverseList(){
         Node<T> temp = last;
-        while (temp !=  null){
-            System.out.println(temp.getdataAtTheNode());
-            temp = temp.getPrevious();
+        if(!isEmpty()) {
+            System.out.print("List (last ->first): ");
+            while (temp != null) {
+                System.out.print("{"+temp.getdataAtTheNode() +"} " );
+                temp = temp.getPrevious();
+            }
+            System.out.println();
+        }else {
+            System.out.println("List is empty !!");
         }
     }
 
@@ -94,4 +100,41 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         }
         return temp;
     }
+
+    @Override
+    public Node<T> deleteNodeWithValue(T value) {
+        Node <T> currentNode =  first;
+        if(!isEmpty()) {
+            while (currentNode != null) {
+                if (currentNode.getdataAtTheNode().equals(value)) {
+                    if(currentNode.getNext() == null && currentNode.getPrevious() == null){
+                        //only single node.
+                        first = null;
+                        last = null;
+                        return currentNode;
+                    }else if (currentNode == first){
+                        //This is the first node.
+                        Node<T> nextNode = first.getNext();
+                        nextNode.setPrevious(null);
+                        first = nextNode;
+                        return currentNode;
+                    }else if(currentNode == last){
+                        //This is the last node.
+                        currentNode.getPrevious().setNext(null);
+                        last = currentNode.getPrevious();
+                        return currentNode;
+                    }else {
+                        Node<T> currentNodesNextNode = currentNode.getNext();
+                        Node<T> currentNodesPreviousNode = currentNode.getPrevious();
+                        currentNodesPreviousNode.setNext(currentNodesNextNode);
+                        currentNodesNextNode.setPrevious(currentNode.getPrevious());
+                        return currentNode;
+                    }
+                }
+                currentNode = currentNode.getNext();
+            }
+        }
+        return null;
+    }
+
 }
