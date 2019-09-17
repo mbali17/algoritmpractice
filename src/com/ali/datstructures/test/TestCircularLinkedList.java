@@ -1,8 +1,8 @@
-package com.ali.test;
+package com.ali.datstructures.test;
 
-import com.ali.interfaces.List;
-import com.ali.list.CircularLinkedList;
-import com.ali.list.Node;
+import com.ali.datstructures.interfaces.List;
+import com.ali.datstructures.list.CircularLinkedList;
+import com.ali.datstructures.list.Node;
 
 public class TestCircularLinkedList {
 
@@ -20,7 +20,7 @@ public class TestCircularLinkedList {
         circularLinkedList.addNodeAtLast(node4);
         circularLinkedList.addNodeAtLast(node5);
 
-        circularLinkedList.displayList();
+        circularLinkedList.displayList(node1,true);
 
         circularLinkedList.deleteFirst();
         circularLinkedList.displayList();

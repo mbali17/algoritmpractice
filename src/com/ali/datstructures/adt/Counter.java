@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ali.adt;
+package com.ali.datstructures.adt;
 
 /**
  * @author Ali

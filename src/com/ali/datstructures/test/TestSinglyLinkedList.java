@@ -1,8 +1,8 @@
-package com.ali.test;
+package com.ali.datstructures.test;
 
-import com.ali.interfaces.List;
-import com.ali.list.Node;
-import com.ali.list.SinglyLinkedList;
+import com.ali.datstructures.interfaces.List;
+import com.ali.datstructures.list.Node;
+import com.ali.datstructures.list.SinglyLinkedList;
 
 public class TestSinglyLinkedList {
     public static void main(String[] args) {

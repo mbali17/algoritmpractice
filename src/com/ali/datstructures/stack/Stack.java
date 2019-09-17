@@ -1,7 +1,7 @@
-package com.ali.stack;
+package com.ali.datstructures.stack;
 
-import com.ali.exceptions.StackOverFlowException;
-import com.ali.exceptions.StackUnderFlowException;
+import com.ali.datstructures.exceptions.StackOverFlowException;
+import com.ali.datstructures.exceptions.StackUnderFlowException;
 
 public class Stack<T> {
 

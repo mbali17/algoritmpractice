@@ -1,4 +1,4 @@
-package com.ali.list;
+package com.ali.datstructures.list;
 
 public class DoublyLinkedList<T> extends AbstractList<T> {
     private Node<T> last;
@@ -10,8 +10,11 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
             last = node;
             first = node;
         }else {
+            //New nodes next is the node being pointed by first.
             node.setNext(first);
+            //previous 'first' previous points to current node.
             first.setPrevious(node);
+            //finally first points to the current node passed.
             first = node;
         }
     }
@@ -58,17 +61,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
 
     @Override
     public void displayReverseList(){
-        Node<T> temp = last;
-        if(!isEmpty()) {
-            System.out.print("List (last ->first): ");
-            while (temp != null) {
-                System.out.print("{"+temp.getdataAtTheNode() +"} " );
-                temp = temp.getPrevious();
-            }
-            System.out.println();
-        }else {
-            System.out.println("List is empty !!");
-        }
+        displayList(last,false);
     }
 
     @Override

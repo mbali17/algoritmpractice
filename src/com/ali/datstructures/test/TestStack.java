@@ -1,9 +1,9 @@
-package com.ali.test;
+package com.ali.datstructures.test;
 
-import com.ali.exceptions.StackOverFlowException;
-import com.ali.exceptions.StackUnderFlowException;
-import com.ali.stack.Stack;
-import com.ali.stack.problems.ReverseStringUsingStack;
+import com.ali.datstructures.exceptions.StackOverFlowException;
+import com.ali.datstructures.exceptions.StackUnderFlowException;
+import com.ali.datstructures.stack.Stack;
+import com.ali.datstructures.stack.problems.ReverseStringUsingStack;
 
 import java.util.Scanner;
 

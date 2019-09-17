@@ -1,4 +1,4 @@
-package com.ali.list;
+package com.ali.datstructures.list;
 
 public class SinglyLinkedList<T>  extends AbstractList<T> {
 

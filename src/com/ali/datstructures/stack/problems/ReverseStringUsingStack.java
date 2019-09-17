@@ -1,10 +1,8 @@
-package com.ali.stack.problems;
+package com.ali.datstructures.stack.problems;
 
-import com.ali.exceptions.StackOverFlowException;
-import com.ali.exceptions.StackUnderFlowException;
-import com.ali.stack.Stack;
-
-import java.util.Arrays;
+import com.ali.datstructures.exceptions.StackOverFlowException;
+import com.ali.datstructures.exceptions.StackUnderFlowException;
+import com.ali.datstructures.stack.Stack;
 
 public class ReverseStringUsingStack {
     public static void reverseString(String inputString) throws StackOverFlowException, StackUnderFlowException {
