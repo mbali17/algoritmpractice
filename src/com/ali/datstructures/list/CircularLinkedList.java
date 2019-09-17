@@ -21,7 +21,5 @@ public class CircularLinkedList<T> extends AbstractList<T> {
             last.setNext(node);
             last = node;
         }
-
     }
-
 }

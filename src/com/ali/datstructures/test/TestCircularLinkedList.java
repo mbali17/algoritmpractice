@@ -20,7 +20,7 @@ public class TestCircularLinkedList {
         circularLinkedList.addNodeAtLast(node4);
         circularLinkedList.addNodeAtLast(node5);
 
-        circularLinkedList.displayList();
+        circularLinkedList.displayList(node1,true);
 
         circularLinkedList.deleteFirst();
         circularLinkedList.displayList();

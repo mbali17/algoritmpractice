@@ -37,6 +37,11 @@ public abstract class AbstractList<T> implements List<T> {
     }
 
     public Node<T> deleteFirst(){
+        //this checks for if there is no element in the list.
+        if(isEmpty()){
+            System.out.println("The List is empty.");
+            return null;
+        }
         Node<T> tempNode = first;
         first = tempNode.getNext();
         return tempNode;
@@ -54,5 +59,25 @@ public abstract class AbstractList<T> implements List<T> {
     @Override
     public Node<T> deleteNodeWithValue(T value) {
         return null;
+    }
+
+    @Override
+    public void displayList(Node<T> fromNode, boolean lookForward) {
+        Node<T> temp = fromNode;
+        if(!isEmpty() && !lookForward) {
+            System.out.print("List (last ->first): ");
+            while (temp != null) {
+                System.out.print("{"+temp.getdataAtTheNode() +"} " );
+                temp = temp.getPrevious();
+            }
+            System.out.println();
+        }else if(!isEmpty() && lookForward) {
+            System.out.print("List (first ->Last): ");
+            while (temp != null) {
+                System.out.print("{"+temp.getdataAtTheNode() +"} " );
+                temp = temp.getNext();
+            }
+            System.out.println();
+        }
     }
 }
